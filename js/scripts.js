@@ -23,23 +23,28 @@ var stringHasNumbers= function(translate){
 var beginWithVowel;
 var doubleconsonant;
 var vowels;
-var translation
+var translation;
 var pigTranslate = function(translate){
-   beginWithVowel= translate[0];
+  var firstLetter= translate[0];
+  var twoLetter= translate[0] + translate[1];
+  var firstvowel;
   vowels = ['a', 'e', 'i', 'o', 'u'];
-  for (i=0; i<= vowels.length; i++){
-    if (vowels[i]=== beginWithVowel){
-      translation=  translate + "ay";
-    }
-    else if(beginWithVowel !== vowels[i])
-    {
-    translation= translate.slice(1) + beginWithVowel + "ay";
-    }
-
-
+  consonants=['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
+  for (var i =translate.length; i>=0  ; i--){
+    for(var j =0; j< vowels.length; j++){
+       if (vowels[j] === translate[i]){
+         firstvowel = i;
+         debugger;
+         //break;
+       }
+     }
   }
+
+  var firstConsonants = translate.slice(0, firstvowel);
+  translate =  translate.slice(firstvowel, translate.length);
+  translation = translate + firstConsonants + "ay";
   return translation;
-}
+};
 //front-end logic
 $(document).ready(function(){
   $("form#pig-latin").submit(function(event){
