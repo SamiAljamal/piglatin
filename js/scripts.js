@@ -21,20 +21,24 @@ var stringHasNumbers= function(translate){
 
 };
 var beginWithVowel;
+var doubleconsonant;
 var vowels;
-var transVowel
+var translation
 var pigTranslate = function(translate){
    beginWithVowel= translate[0];
   vowels = ['a', 'e', 'i', 'o', 'u'];
   for (i=0; i<= vowels.length; i++){
     if (vowels[i]=== beginWithVowel){
-      transVowel=  translate + "ay";
+      translation=  translate + "ay";
     }
-    
+    else if(beginWithVowel !== vowels[i])
+    {
+    translation= translate.slice(1) + beginWithVowel + "ay";
+    }
 
 
   }
-  return transVowel;
+  return translation;
 }
 //front-end logic
 $(document).ready(function(){
