@@ -6,11 +6,10 @@
 //   return true;
 // }
 // };
-var arrayForstring=[]
+var arrayForstring;
 var stringHasNumbers= function(translate){
   var isNumber;
-  var isLetter;
-  arrayForstring= translate.split("");
+   arrayForstring= translate.split("");
   arrayForstring.forEach(function(char){
     if (parseInt(char)){
       isNumber = true;
@@ -21,10 +20,26 @@ var stringHasNumbers= function(translate){
   return isNumber;
 
 };
+var beginWithVowel;
+var vowels;
+var transVowel
+var pigTranslate = function(translate){
+   beginWithVowel= translate[0];
+  vowels = ['a', 'e', 'i', 'o', 'u'];
+  for (i=0; i<= vowels.length; i++){
+    if (vowels[i]=== beginWithVowel){
+      transVowel=  translate + "ay";
+    }
+    
 
+
+  }
+  return transVowel;
+}
 //front-end logic
 $(document).ready(function(){
   $("form#pig-latin").submit(function(event){
+
     event.preventDefault();
     var translate = $("input#translator").val();
 
@@ -32,11 +47,10 @@ $(document).ready(function(){
       $("p").text("Please enter a word only")
     }
     else{
-      $(".translator").text(translate)
-      $(".piglatin").text(translate);
-
+      $("p").text(pigTranslate(translate));
     }
 
-
+    // $(".translator").text(translate)
+    // $(".piglatin").text(translate);
   });
 });
