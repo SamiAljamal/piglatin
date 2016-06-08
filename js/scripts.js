@@ -34,7 +34,7 @@ var pigTranslate = function(translate){
     for(var j =0; j< vowels.length; j++){
        if (vowels[j] === translate[i]){
          firstvowel = i;
-         debugger;
+         
          //break;
        }
      }
